@@ -1,0 +1,298 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Forms</title>
+
+    <!-- Google Font & Material Icons  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+
+    <!-- App CSS -->
+    <!--<link type="text/css" href="assets/css/style.min.css" rel="stylesheet">-->
+    <link type="text/css" href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="assets/css/bootstrap_material.css" rel="stylesheet">
+
+    <link type="text/css" href="assets/css/materialadmin.css" rel="stylesheet">
+    <link type="text/css" href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link type="text/css" href="assets/css/material-design-iconic-font.min.css" rel="stylesheet">
+
+    <!--Select 2-->
+    <link rel="stylesheet" href="assets/css/select2.css">
+
+    <link type="text/css" href="assets/css/app.css" rel="stylesheet">
+    <link type="text/css" href="assets/css/app_responsive.css" rel="stylesheet">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-datepicker.min.css"> <!-- Datepicker -->
+    <link rel="stylesheet" href="assets/css/bootstrap-timepicker.min.css"> <!-- Timepicker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontawesome/4.5.0/css/font-awesome.min.css"> <!-- Required by summernote -->
+    <link rel="stylesheet" href="assets/css/summernote.min.css"> <!-- Summernote WYSIWYG -->
+    <link rel="stylesheet" href="assets/css/bootstrap-touchspin.min.css"> <!-- Touchspin -->
+    <!-- Jquery -->
+    <script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/fabric.js"></script>
+	<script src="assets/js/draw.js"></script>
+
+    <style>
+        .export-table .input-group-content {
+            padding-top: 16px;
+        }
+
+        .export-table .form-group {
+            padding-top: 16px;
+        }
+
+        .form-group .form-control ~ label {
+            opacity: 1;
+            font-size: 13px;
+            padding-left: 10px;
+        }
+
+        .form-group > label, .form-group .control-label {
+            opacity: 1;
+        }
+
+        .export-table .form-control {
+            padding-left: 6px;
+        }
+
+        section .style-primary, .offcanvas-pane .style-primary, .card .style-primary, section.style-primary, .offcanvas-pane.style-primary, .card.style-primary {
+            background-color: #59a9fd;
+            border-color: #59a9fd;
+        }
+
+        .form-group .form-control ~ label:after, .form-group .form-control ~ .form-control-line:after {
+            background-color: #59a9fd;
+        }
+		.disable-button {
+			opacity: 0.5;
+			cursor: default;
+			pointer-events: none;
+			color: #c0c0c0;
+		}
+		
+		.image-editor {
+			position: relative;
+		}
+		canvas {
+			border: 1px solid #000;
+		}
+		.itext {
+			width: 300px;
+			background: transparent;
+			position: absolute;
+			z-index: 2;
+		}
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar navbar-light bg-primary navbar-full navbar-fixed-top left-md-sidebar">
+        <button class="navbar-toggler pull-xs-left hidden-md-up" type="button" data-toggle="sidebar" data-target="#sidebarLeft" data-transition="false">
+            <span class="material-icons">menu</span>
+        </button>
+        <a class="navbar-brand" href="index.html">A1 TERMINAL</a>
+    </nav>
+
+    <!-- Sidebar -->
+
+    <div class="sidebar sidebar-left sidebar-dark bg-white show-desktop" id="sidebarLeft">
+        <ul class="nav" id="mainMenu">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="material-icons">home</i>
+                    <span class="icon-text font-bold">Home</span>
+                </a>
+                <a href="javascript:;" id="btn_close_menu" class="close-menu">
+                    <i class="material-icons">clear</i>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="material-icons">import_export</i>
+                    <span class="icon-text">Export Receiving</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="material-icons">import_export</i>
+                    <span class="icon-text">Import Receiving</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="material-icons">bug_report</i>
+                    <span class="icon-text">Damage Survey</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="material-icons">apps</i>
+                    <span class="icon-text">Inventory Check</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="material-icons">help_outline</i>
+                    <span class="icon-text">Find Next POW</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="material-icons">local_shipping</i>
+                    <span class="icon-text">Delivery</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="material-icons">forward_5</i>
+                    <span class="icon-text">Re-Delivery with Trouble</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="material-icons">search</i>
+                    <span class="icon-text">Cargo Inquiry</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="material-icons">settings</i>
+                    <span class="icon-text">Setting</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="material-icons">power_settings_new</i>
+                    <span class="icon-text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+    <!--  Content -->
+
+    <div class="content-wrapper">
+
+        <div class="row remove-margin" style="margin-bottom: -10px;">
+            <div class="col-sm-12 col-md-12 col-lg-12 remove-padding">
+                <div class="card">
+                    <div class="card-block text-center page-title">
+                        <a href="javascript:;">
+                            <span class="icon-text font-bold">EXPORT RECEIVING - TRANSPORT</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       <div class="row remove-margin" style="height:100%;">
+			<div class="col-sm-12 col-md-12 col-lg-12 col-xs-12 remove-padding" id="editor-content">
+				<div class="toolbar text-center">
+
+					<a href="javascript:;" class="color-active shape-type" onclick="selectShape(this,'rectangle')"><i class="fa fa-square-o" style="color:white;font-size: 19px;"></i></a>
+					<a href="javascript:;" class="shape-type" onclick="selectShape(this,'circle')"><i class="fa fa-circle-o" style="color:white;"></i></a>
+					<a href="javascript:;" class="shape-type" onclick="selectShape(this,'arrow')"><i class="fa fa-arrow-right" style="color:white;"></i></a>
+					<a href="javascript:;" class="shape-type" onclick="selectShape(this,'line')"><i class="fa fa-pencil" style="color:white;"></i></a>
+					<a href="javascript:;" class="shape-type" onclick="addText(this);"><i class="fa fa-font" style="color:white;"></i></a>
+					<a href="javascript:;" class="shape-type" onclick="selectAndMoveShape(this);"><i class="fa fa-hand-pointer-o" style="color:white;"></i></a>
+					
+					
+					<a id="selected" href="javascript:;" onclick="removeSelected()"><i class="fa fa-times" style="color:white;font-size: 19px;"></i></a>
+					 <a href="javascript:;" id="redo"><i class="fa fa-share" style="color:white;font-size: 15px;"></i></a>
+					<a href="javascript:;" id="undo"><i class="fa fa-reply" style="color:white;font-size: 15px;"></i></a>
+
+					
+					<a href="javascript:;" class="color-active color-tools" onclick="setColorTools(this, 'red')"><i class="fa fa-circle" style="color:red;"></i></a>
+					<a href="javascript:;" class="color-tools" onclick="setColorTools(this, 'blue')"><i class="fa fa-circle" style="color:blue;"></i></a>
+					<a href="javascript:;" class="color-tools" onclick="setColorTools(this, 'yellow')"><i class="fa fa-circle" style="color:yellow;"></i></a>
+					<a href="javascript:;" class="color-tools" onclick="setColorTools(this, 'white')"><i class="fa fa-circle" style="color:white;"></i></a>
+					<a href="javascript:;" class="color-tools" onclick="setColorTools(this, 'black')"><i class="fa fa-circle" style="color:black;"></i></a>
+
+					<a href="javascript:;" onclick="downloadCanvas(this,'c','image-edited.png')"><i class="fa fa-download" style="color:white;font-size:16px;"></i></a>
+				</div>
+				<div class="image-editor">
+					<canvas id="c" class="canvas-content" style="border:1px solid #aaa;"></canvas>
+				</div>
+			</div>
+		</div>
+    </div>
+
+
+    <div class="button-group-bottom">
+
+        <div class="container-fluid">
+            <div class="row remove-margin">
+
+                <a href="javascript:;">
+                    <div class="col-xs-3 remove-padding text-center">
+                        <i class="material-icons">keyboard_arrow_left</i>
+                        <span>Previous</span>
+                    </div>
+                </a>
+                <div class="col-xs-3" style="background:#BEBCC1;height:44px;    border-right: 1px solid rgb(136, 136, 136);"></div>
+                <div class="col-xs-3" style="background:#BEBCC1;height:44px;"></div>
+
+                <a href="javascript:;">
+                    <div class="col-xs-3 remove-padding text-center">
+                        <i class="material-icons">keyboard_arrow_right</i>
+                        <span>Next</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer style="display:none;">
+        <div class="footer-grid"></div>
+    </footer>
+
+
+    <!-- App JS -->
+    <script src="assets/js/sidebar.min.js"></script> <!-- // APP Sidebar -->
+    <!-- // END App JS -->
+    <!-- Bootstrap JS -->
+    <script src="assets/js/tether.min.js"></script> <!-- // Tooltips in BS4 -->
+    <script src="assets/js/bootstrap.js"></script> <!-- // BS4 -->
+    <!-- // END Bootstrap -->
+    <!-- Vendor JS -->
+    <!-- FORMS -->
+    <script src="assets/js/jquery.bootstrap-touchspin.js"></script> <!-- Touchspin (+- inserts) -->
+    <script src="assets/js/bootstrap-datepicker.min.js"></script> <!-- Bootstrap datepicker -->
+    <script src="assets/js/bootstrap-timepicker.js"></script> <!-- Timepicker -->
+    <!-- WYSIWYG (summernote) -->
+    <script src="assets/js/summernote.min.js"></script>
+    <!-- // END Vendor Scripts -->
+    <!-- Example of Vendor Inits (bundled in "examples/js/examples.bundle.min.js") -->
+    <script src="assets/js/date-time.js"></script>
+    <script src="assets/js/summernote.js"></script>
+    <script src="assets/js/touchspin.js"></script>
+    <script src="assets/js/select2.full.js"></script>
+    <script src="assets/js/app.js"></script>
+    <!-- // END Example JS -->
+
+
+    <script type="text/javascript">
+        $(function () {
+
+            var data = [{ id: 0, text: 'CLT Trucking' }, { id: 1, text: 'CLT Trucking 1' }, { id: 2, text: 'CLT Trucking 2' }, { id: 3, text: 'CLT Trucking 3' }, { id: 4, text: 'CLT Trucking 4' }];
+            $(".js-example-data-array").select2({
+                data: data
+            });
+
+            $("#txt_date").focus();
+        });
+    </script>
+</body>
+</html>
